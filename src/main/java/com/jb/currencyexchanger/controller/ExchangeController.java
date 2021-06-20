@@ -21,9 +21,9 @@ public class ExchangeController {
     @GetMapping("/convert")
     public ResponseEntity<?> convertCurrency(@RequestParam String fromCurrency,
                                              @RequestParam String toCurrency,
-                                             @RequestParam int amount) throws NotFoundException {
-        double amountToDouble = amount * 1.0;
-        ExchangeResponseDetails exchangeResponseDetails = exchangeService.calculateCurrency(fromCurrency, toCurrency, amountToDouble);
+                                             @RequestParam double amount) throws NotFoundException {
+//        double amountToDouble = amount * 1.0;
+        ExchangeResponseDetails exchangeResponseDetails = exchangeService.calculateCurrency(fromCurrency, toCurrency, amount);
         return new ResponseEntity<>(exchangeResponseDetails, HttpStatus.OK);
     }
 }
